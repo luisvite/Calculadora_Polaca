@@ -93,3 +93,4 @@ void listarCola(cola *c)
     for(i=c->h; i<=c->t; i++)
         printf("%c\t",c->arreglo[i]);
 }
+
