@@ -1,6 +1,7 @@
 #include<string.h>
 #include<stdio.h>
 #include<string.h>
+#include"PilaYCola.h"
 
 //Declaracion de prototipos y estructuras  a utilizar
 int ValidaCadena(char cadena[],int indice);
