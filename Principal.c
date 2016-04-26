@@ -6,8 +6,8 @@
 //Declaracion del main
 int main()
 {
-	char operacion[50];
-	int tam;
+	char operacion[50],caracter;
+	int tam,i;
 	Pila *p;
 	Cola *c;
 
@@ -31,8 +31,32 @@ int main()
         c->header=-1;
         c->tail=-1;
         c->max=tam;
+        //Comenzamos a llenar
+        for(i=0;i<=tam;i++)
+        {
+            if(operacion[i]==43 || operacion[i]==45)//+ o-
+            {
 
+            }
+            else if(operacion[i]==42 || operacion[i]==47)//* o /
+            {
 
+            }
+            else if(operacion[i]==94) // ^
+            {
+
+            }
+            else if(operacion[i]==40 || operacion[i]==91)// ( o [
+            {
+
+            }
+            else if(operacion[i]==41 || operacion[i]==93)// ) o ]
+            {
+
+            }
+            else //significa que es un mumero o un punto
+                Insertar(c,operacion[i]);
+        }
 	}
 	else
 	{
