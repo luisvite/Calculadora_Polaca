@@ -23,7 +23,7 @@ void ListarP(Pila *p)
     int i;
     for(i=p->tope;i>=0;i--)
     {
-        printf("[%d] ",p->arreglo[i]);
+        printf("%c",p->arreglo[i]);
     }
 }
 
@@ -66,7 +66,7 @@ void Listar(Cola *c)
 {
     int i;
     for(i=c->header;i<=c->tail;i++)
-        printf("[%d] ",c->arreglo[i]);
+        printf("%c",c->arreglo[i]);
 }
 
 int ValidaVacio(Cola *c)

@@ -7,7 +7,7 @@
 int main()
 {
 	char operacion[50],caracter;
-	int tam,i;
+	int tam,i,j;
 	Pila *p;
 	Cola *c;
 
@@ -38,18 +38,132 @@ int main()
             {
                 if(!ValidaVacioP(p))
                 {
-
+                    if(ElementoTope(p)==94)
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        if(!ValidaVacioP(p))
+                        {
+                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                            {
+                                caracter=Pop(p);
+                                Insertar(c,caracter);
+                                if(!ValidaVacioP(p))
+                                {
+                                    if(ElementoTope(p)==43 ||ElementoTope(p)==45)
+                                    {
+                                        caracter=Pop(p);
+                                        Insertar(c,caracter);
+                                        Push(p,operacion[i]);
+                                    }
+                                    else
+                                    {
+                                        Push(p,operacion[i]);
+                                    }
+                                }
+                                else
+                                {
+                                    Push(p,operacion[i]);
+                                }
+                            }
+                            else if(ElementoTope(p)==43 ||ElementoTope(p)==45)
+                            {
+                                caracter=Pop(p);
+                                Insertar(c,caracter);
+                                Push(p,operacion[i]);
+                            }
+                            else
+                            {
+                                Push(p,operacion[i]);
+                            }
+                        }
+                        else
+                        {
+                            Push(p,operacion[i]);
+                        }
+                    }
+                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        if(!ValidaVacioP(p))
+                        {
+                            if(ElementoTope(p)==43 ||ElementoTope(p)==45)
+                            {
+                                caracter=Pop(p);
+                                Insertar(c,caracter);
+                                Push(p,operacion[i]);
+                            }
+                            else
+                            {
+                                Push(p,operacion[i]);
+                            }
+                        }
+                        else
+                        {
+                            Push(p,operacion[i]);
+                        }
+                    }
+                    else if(ElementoTope(p)==43 ||ElementoTope(p)==45)
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        Push(p,operacion[i]);
+                    }
+                    else
+                    {
+                        Push(p,operacion[i]);
+                    }
                 }
                 else
                 {
                     Push(p,operacion[i]);
                 }
             }
-            else if(operacion[i]==42 || operacion[i]==47)//* o /
+            else if(operacion[i]==42 || operacion[i]==47)// * o /
             {
                 if(!ValidaVacioP(p))
                 {
-
+                    if(ElementoTope(p)==94)
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        if(!ValidaVacioP(p))
+                        {
+                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                            {
+                                caracter=Pop(p);
+                                Insertar(c,caracter);
+                                Push(p,operacion[i]);
+                            }
+                            else if(ElementoTope(p)==40 || ElementoTope(p)==91)
+                            {
+                                Push(p,operacion[i]);
+                            }
+                            else
+                            {
+                                Insertar(c,operacion[i]);
+                            }
+                        }
+                        else
+                        {
+                            Push(p,operacion[i]);
+                        }
+                    }
+                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        Push(p,operacion[i]);
+                    }
+                    else if(ElementoTope(p)==40 || ElementoTope(p)==91)
+                    {
+                        Push(p,operacion[i]);
+                    }
+                    else
+                    {
+                        Insertar(c,operacion[i]);
+                    }
                 }
                 else
                 {
@@ -60,7 +174,18 @@ int main()
             {
                 if(!ValidaVacioP(p))
                 {
-
+                    if(ElementoTope(p)==operacion[i])
+                    {
+                        caracter=Pop(p);
+                        Insertar(c,caracter);
+                        Push(p,operacion[i]);
+                    }
+                    else if(ElementoTope(p)==40 || ElementoTope(p)==91)
+                    {
+                        Push(p,operacion[i]);
+                    }
+                    else
+                        Insertar(c,operacion[i]);
                 }
                 else
                 {
@@ -91,7 +216,26 @@ int main()
                 caracter=Pop(p);
             }
             else //significa que es un mumero o un punto
+            {
                 Insertar(c,operacion[i]);
+            }
+            printf("\n\nPaso: %i",i+1);
+            printf("\nSimbolo analizado: %c",operacion[i]);
+            printf("\nPila: ");
+            ListarP(p);
+            printf("\nExpresion en notacion prefija: ");
+            Listar(c);
+        }
+        for(j=p->tope;j>=0;j--)
+        {
+            caracter=Pop(p);
+            Insertar(c,caracter);
+            printf("\n\nPaso: %i",i+1);
+            printf("\nSimbolo analizado: ");
+            printf("\nPila: ");
+            ListarP(p);
+            printf("\nExpresion en notacion prefija: ");
+            Listar(c);
         }
 	}
 	else
