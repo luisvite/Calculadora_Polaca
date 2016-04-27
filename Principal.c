@@ -36,23 +36,59 @@ int main()
         {
             if(operacion[i]==43 || operacion[i]==45)//+ o-
             {
+                if(!ValidaVacioP(p))
+                {
 
+                }
+                else
+                {
+                    Push(p,operacion[i]);
+                }
             }
             else if(operacion[i]==42 || operacion[i]==47)//* o /
             {
+                if(!ValidaVacioP(p))
+                {
 
+                }
+                else
+                {
+                    Push(p,operacion[i]);
+                }
             }
             else if(operacion[i]==94) // ^
             {
+                if(!ValidaVacioP(p))
+                {
 
+                }
+                else
+                {
+                    Push(p,operacion[i]);
+                }
             }
             else if(operacion[i]==40 || operacion[i]==91)// ( o [
             {
+                Push(p,operacion[i]);
+            }
+            else if(operacion[i]==41)// )
+            {
+                while(ElementoTope(p)!=40)
+                {
+                    caracter=Pop(p);
+                    Insertar(c,caracter);
+                }
+                caracter=Pop(p);
 
             }
-            else if(operacion[i]==41 || operacion[i]==93)// ) o ]
+            else if(operacion[i]==93)//]
             {
-
+                while(ElementoTope(p)!=91)
+                {
+                    caracter=Pop(p);
+                    Insertar(c,caracter);
+                }
+                caracter=Pop(p);
             }
             else //significa que es un mumero o un punto
                 Insertar(c,operacion[i]);
