@@ -5,11 +5,11 @@
 main()
 {
 char expr[MAXCOLS];
-int position = 0 ; //APARECE EL MISMO CUADRADO//
+int position = 0 ; //APARECE EL MISMO CUADRADO
 float eval();
 
 while(( expr[position++]= getchar())!='\n');
-expr[--position]='\0'; // APARECE EL MISMO CUADRADO//
+expr[--position]='\0'; // APARECE EL MISMO CUADRADO
 printf("%s%s","la expresion postfija original es:", expr);
 printf("%f\n",eval(exp));
 } //Fin del main
@@ -32,7 +32,7 @@ struct stack{
   float oper(), pop();
   struct stack opndstk;
   opndstk.top = -1;
-for(position = [];//aparece el cuadrado// (c =expr[position]) ! = '\[]';//aparece el cuadrado// position++)
+for(position = 0; (c =expr[position]) ! = '\0'; position++)
 if (isdigit(c))
 /* operando--convertir el caracter que*/
 /* representa el digito float y*/
