@@ -1,0 +1,37 @@
+//conversion de una expresion infija a postfija
+
+opstk = la pila vacia;
+while(no es fin de entrada){
+symb = siguiente caracter en la entrada;
+  if(symb es un operando)
+agrega symb a la cadena postfija
+
+else{
+  while(!empty(opstk) && prcd(stacktop(opstk), symb)){
+  topsymb = pop(opstk);
+  agrega topsymb a la cadena postfija;   ;
+  }/*fin de while*/
+  push(opstk, symb);
+  }/*fin de else*/
+  }/*fin de while*/
+  /*extracion de los operadores restantes*/
+  while (!empty8opstk)){
+  topsymb = pop8opstk);
+  agrega topsymb a la cadena postfija;
+  }/*fin de while*/
+  
+  
+  //antes o a partir de la linea 14 para un caso en especial//
+  if(empty(opstk) || symb != ')')
+  push(opstk, symb);
+  else?/*extraer el parentesis que abre y descartarlo*/
+  topsym = pop(opstks);
+  
+  
+  
+  
+  prcd('(',op) = FALSE
+  prcd(op,'(') = FALSE
+  prcd(op,'(') = TRUE
+  prcd(')',op) = unudefuned
+  
