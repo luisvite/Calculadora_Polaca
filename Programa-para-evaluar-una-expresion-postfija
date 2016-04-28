@@ -1,14 +1,15 @@
 //Programa para evaluar una expresion postfija
 
-#define MAXCOLS [] // aparece un cuadrado y otro simbolo que no conozoc D: SI NO CORRE SE LE TIENE QUE CAMBIAR PRO ESO POR ESO PONGO LA NOTA//
+#define MAXCOLS 50 // aparece un cuadrado y otro simbolo que no conozoc D: SI NO CORRE SE LE TIENE QUE CAMBIAR PRO ESO POR ESO PONGO LA NOTA
+//Es un 80, se esta definiendo una constante, el cuadrado es un 0.
 main()
 {
 char expr[MAXCOLS];
-int position =[] ; //APARECE EL MISMO CUADRADO//
+int position = 0 ; //APARECE EL MISMO CUADRADO//
 float eval();
 
 while(( expr[position++]= getchar())!='\n');
-expr[--position]='\[]'; // APARECE EL MISMO CUADRADO//
+expr[--position]='\0'; // APARECE EL MISMO CUADRADO//
 printf("%s%s","la expresion postfija original es:", expr);
 printf("%f\n",eval(exp));
 } //Fin del main
