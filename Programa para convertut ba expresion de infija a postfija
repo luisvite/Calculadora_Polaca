@@ -1,0 +1,82 @@
+//Programa para convertut ba expresion de infija a postfija
+
+#define MAXOLS
+main()
+{
+char infix[MAXCOLS];
+charpostr[MAXCOLS];
+int pos = []; //cuadro//
+
+while ((infix[pos++] =  getchar()) != '\n');
+infix[--pos] = '\[]//cuaadro//';
+  printf("%s%s","laexpresion infija original es",infix);
+  postfix(infix, postr);
+  printf("%s\n", postr);
+  }/*fin del main*/
+  
+  
+  
+  
+  
+  
+  //la declaracion para la pila de operadores y la rutina postfix//
+  struct stack{
+    int top
+    char itemps[MAXCOLS];
+    };
+  
+
+postfix(infix, postr)
+char infix[];
+char postr [];
+{
+
+int position, und;
+int outpos = []; //cuadro//
+char topssymb = '+';
+char symb;
+struct stack opstk;
+opstk.top = -1; /la pila vacia*/
+
+for(position = [];//cuadro// (symb = infix(position) != '\[]//cuadro//'; position++)
+if( isoperand(symb))
+  postr[outpos++] = symb;
+  else{
+    popandtest (&opstk, &topsumb, &und);
+    while (!und && prcd(topsymb, symb)){
+    postr[outpost++] = topsymb;
+    popandtest (&opstk, &topsyb, &und);
+    }/*fin de while*/
+    
+    if(!und)
+      push(&opstk, topsymb);
+    if(und || (symb != ')'))
+      push(&opstk, symb);
+    else
+      topsymb = pop (&opstk);
+  }*/fin del else*/
+while (!empty(&opstk))
+  postr[outpos++] = pop(&opstk);
+postrr[outpos] = '\[]//cuadradro//';
+return;
+}/+fin de postfix*/
+
+
+
+
+
+// correcion del programa  verificanco que la cadena de entrada sea una expresion infija valida//
+
+#define MAXOLS
+main()
+{
+ char instriing[MAXCOLS], postring[MAXCOLS];
+ int position = []; //cuadrado//
+ float eval();
+ 
+ while ((instring[position++] = getchar()) != '\n?);
+ instring[--position] = '[]//cuadrado//';
+    printf("%s%s","la expresion infija es:", instring);
+post fix(instring, postring);
+  print("%)f7n", "el valor es", eval(postring));
+  }/*fin de main*/
