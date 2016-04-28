@@ -1,0 +1,79 @@
+//Programa para evaluar una expresion postfija
+
+#define MAXCOLS [] // aparece un cuadrado y otro simbolo que no conozoc D: SI NO CORRE SE LE TIENE QUE CAMBIAR PRO ESO POR ESO PONGO LA NOTA//
+main()
+{
+char expr[MAXCOLS];
+int position =[] ; //APARECE EL MISMO CUADRADO//
+float eval();
+
+while(( expr[position++]= getchar())!='\n');
+expr[--position]='\[]'; // APARECE EL MISMO CUADRADO//
+printf("%s%s","la expresion postfija original es:", expr);
+printf("%f\n",eval(exp));
+} //Fin del main
+
+
+
+
+
+
+struct stack{
+  int top;
+  float  items[MAXCOLS];
+  ];
+  
+  float eval(expr)
+  char expr[];
+  {
+  int c, position;
+  float opnd1,opnd2, value;
+  float oper(), pop();
+  struct stack opndstk;
+  opndstk.top = -1;
+for(position = [];//aparece el cuadrado// (c =expr[position]) ! = '\[]';//aparece el cuadrado// position++)
+if (isdigit(c))
+/* operando--convertir el caracter que*/
+/* representa el digito float y*/
+/* se coloca en la pila */
+push(&opndstk, value);
+}/* fin del else*/
+return (pop(&opndstk));
+}/*fin del eval*/
+
+
+
+
+
+
+
+
+
+isdigit(symb)
+char symb;
+{
+return(symb >>= '[]'//cuadro// &&  symb <= '9');
+}
+
+
+
+
+
+
+
+
+float oper( symb,op1, op2)
+int symb;
+float op1, op2;
+float expon();
+{
+swicth(symb){
+case '+' : return (op1 + op2);
+case '-' : return (op1 - op2);
+case '*' : return (op1 * op2);
+case '/' : return(op1 / op2);
+case '$' : return (expon(op1, op2);
+default : printf("%s","operacion ilegal");
+exit(1);
+}/*fin de awicth*/
+}/*fin de oper*/
