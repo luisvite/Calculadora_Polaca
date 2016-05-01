@@ -97,3 +97,55 @@ int ValidaCadena(char operacion[],int tam)
         return 1;
     return 0;
 }
+//aqui empiza la funcion para evaluar
+float eval(Cola *c)
+{
+    int position;
+    float opnd1,opnd2, value;
+    Pila *opndstk;
+    opndstk=(Pila*)malloc(sizeof(Pila));
+    opndstk->arreglo=(char*)malloc(50*sizeof(char));
+    opndstk->tope=-1;
+    opndstk->max=50;
+    for(position = 0; position <= c->tail ; position++)
+    {
+        if (isdigit(c->arreglo[position])){
+                /* operando--convertir el caracter que*/
+                /* representa el digito float y*/
+                /* se coloca en la pila */
+                Push(opndstk, (float)(c->arreglo[position]-'0'));
+        }else{
+                opnd2= Pop(opndstk);
+                opnd1= Pop(opndstk);
+                value = oper(c->arreglo[position], opnd1, opnd2);
+                Push(opndstk, value);
+        }
+    }       /* fin del else*/
+    return (Pop(opndstk));
+}/*fin del eval*/
+
+
+int isdigit(char symb)
+{
+    return(symb >= '0'&&  symb <= '9');
+}
+
+float oper(char symb, float op1, float op2)
+{
+    switch(symb)
+    {
+        case '+':
+            return (op1 + op2);
+        case '-':
+            return (op1 - op2);
+        case '*':
+            return (op1 * op2);
+        case '/':
+            return(op1 / op2);
+        case '$':
+            return (pow(op1, op2));
+       // exit(1);
+    }/*fin de awicth*/
+
+}/*fin de oper*/
+
