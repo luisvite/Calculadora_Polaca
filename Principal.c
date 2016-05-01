@@ -237,6 +237,10 @@ int main()
             printf("\nExpresion en notacion prefija: ");
             Listar(c);
         }
+        
+        resultado = eval(c);
+        printf("El resultado de evaluar la operacion es: %f", resultado);
+        printf("\n");
 	}
 	else
 	{
