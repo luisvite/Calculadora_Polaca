@@ -34,5 +34,8 @@ int ValidaLleno(Cola *c);
 int ValidaEspacio(Cola *c);
 //Otros metodos
 int ValidaCadena(char operacion[],int tam);
+float eval(Cola *c);
+int isdigit(char symb);
+float oper(char symb, float op1, float op2);
 
 #endif // METODOS_H_INCLUDED
