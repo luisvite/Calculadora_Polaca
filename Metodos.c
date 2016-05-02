@@ -127,7 +127,7 @@ float eval(Cola *c)
 
 int isdigit(char symb)
 {
-    return(symb >= '0'&&  symb <= '9');
+    return(symb>='0' &&  symb<='9');
 }
 
 float oper(char symb, float op1, float op2)

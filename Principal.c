@@ -10,6 +10,7 @@ int main()
 	int tam,i,j;
 	Pila *p;
 	Cola *c;
+	float resultado;
 
 	printf("\t\tCALCULADORA POLACA\n");
 	printf("Ingrese la expresion a ser evaluada en notacion infija: ");
@@ -32,19 +33,19 @@ int main()
         c->tail=-1;
         c->max=tam;
         //Comenzamos a llenar
-        for(i=0;i<=tam;i++)
+        for(i=0;i<=tam-1;i++)
         {
-            if(operacion[i]==43 || operacion[i]==45)//+ o-
+            if(operacion[i]==43 || operacion[i]==45)//+ o -
             {
                 if(!ValidaVacioP(p))
                 {
-                    if(ElementoTope(p)==94)
+                    if(ElementoTope(p)==94)// ^
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
                         if(!ValidaVacioP(p))
                         {
-                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)//* o /
                             {
                                 caracter=Pop(p);
                                 Insertar(c,caracter);
@@ -82,7 +83,7 @@ int main()
                             Push(p,operacion[i]);
                         }
                     }
-                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)//* o /
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
@@ -104,7 +105,7 @@ int main()
                             Push(p,operacion[i]);
                         }
                     }
-                    else if(ElementoTope(p)==43 ||ElementoTope(p)==45)
+                    else if(ElementoTope(p)==43 ||ElementoTope(p)==45)//+ o -
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
@@ -124,25 +125,21 @@ int main()
             {
                 if(!ValidaVacioP(p))
                 {
-                    if(ElementoTope(p)==94)
+                    if(ElementoTope(p)==94)//elemento tope==^???
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
                         if(!ValidaVacioP(p))
                         {
-                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                            if(ElementoTope(p)==42 ||ElementoTope(p)==47)//elemento tope==* o /???
                             {
                                 caracter=Pop(p);
                                 Insertar(c,caracter);
                                 Push(p,operacion[i]);
                             }
-                            else if(ElementoTope(p)==40 || ElementoTope(p)==91)
-                            {
-                                Push(p,operacion[i]);
-                            }
                             else
                             {
-                                Insertar(c,operacion[i]);
+                                Push(p,operacion[i]);
                             }
                         }
                         else
@@ -150,19 +147,15 @@ int main()
                             Push(p,operacion[i]);
                         }
                     }
-                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)
+                    else if(ElementoTope(p)==42 ||ElementoTope(p)==47)//elemento tope==* o /???
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
                         Push(p,operacion[i]);
                     }
-                    else if(ElementoTope(p)==40 || ElementoTope(p)==91)
-                    {
-                        Push(p,operacion[i]);
-                    }
                     else
                     {
-                        Insertar(c,operacion[i]);
+                        Push(p,operacion[i]);
                     }
                 }
                 else
@@ -174,18 +167,16 @@ int main()
             {
                 if(!ValidaVacioP(p))
                 {
-                    if(ElementoTope(p)==operacion[i])
+                    if(ElementoTope(p)==operacion[i])//^ = elemento tope???
                     {
                         caracter=Pop(p);
                         Insertar(c,caracter);
                         Push(p,operacion[i]);
                     }
-                    else if(ElementoTope(p)==40 || ElementoTope(p)==91)
+                    else
                     {
                         Push(p,operacion[i]);
                     }
-                    else
-                        Insertar(c,operacion[i]);
                 }
                 else
                 {
@@ -219,13 +210,16 @@ int main()
             {
                 Insertar(c,operacion[i]);
             }
+
             printf("\n\nPaso: %i",i+1);
             printf("\nSimbolo analizado: %c",operacion[i]);
             printf("\nPila: ");
             ListarP(p);
             printf("\nExpresion en notacion prefija: ");
             Listar(c);
+
         }
+
         for(j=p->tope;j>=0;j--)
         {
             caracter=Pop(p);
@@ -237,7 +231,7 @@ int main()
             printf("\nExpresion en notacion prefija: ");
             Listar(c);
         }
-        
+
         resultado = eval(c);
         printf("El resultado de evaluar la operacion es: %f", resultado);
         printf("\n");
