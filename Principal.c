@@ -233,7 +233,7 @@ int main()
         }
 
         resultado = eval(c);
-        printf("El resultado de evaluar la operacion es: %f", resultado);
+        printf("\nEl resultado de evaluar la operacion es: %f", resultado);
         printf("\n");
 	}
 	else
